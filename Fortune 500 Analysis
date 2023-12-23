@@ -86,6 +86,6 @@ SELECT company_name, MIN(employees), MAX(paid_time_off_days)
 FROM fortune_companies
 WHERE healthcare_benefits=1;
 
-# Which industry has the highest days of PTO? 
+# Which industry has the highest average days of PTO? 
 SELECT industry, ROUND(AVG(paid_time_off_days))
 FROM fortune_companies;
