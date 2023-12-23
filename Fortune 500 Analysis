@@ -59,11 +59,33 @@ VALUES
 # Analysis: 
 
 # Assign all the companies as "Best Benefits", "Average Benefits", or "Lack of Benefits" based on the benefits offered. 
+SELECT company_name, paid_time_off_days, maternity_leave_weeks,
+CASE WHEN paid_time_off_days >=20 AND maternity_leave_weeks >=12 THEN "Best Benefits"
+WHEN paid_time_off_days >=15 AND maternity_leave_weeks >=10 THEN "Average Benefits"
+ELSE "Lack of Benefits"
+END AS Benefits
+FROM fortune_companies
+WHERE healthcare_benefits=1
+ORDER BY paid_time_off_days desc;
 
 # Which industries have an average revenue of at least $200 billion and what are their average revenues? 
+SELECT industry, ROUND(AVG(revenue)) as average_revenue 
+FROM fortune_companies
+GROUP BY industry
+HAVING average_revenue >= 200
+ORDER BY average_revenue desc;
 
-# Which companies have health benefits and have been able to retain employees for an average of more than 5 years? 
+# Which companies have health benefits and have been able to retain employees for an average of more than 5 years?
+SELECT company_name, avg_employee_tenure
+FROM fortune_companies
+WHERE healthcare_benefits=1 AND avg_employee_tenure>=5
+ORDER BY avg_employee_tenure desc;
 
 # Which company with health benefits has the lowest number of employees with the most days of PTO?
+SELECT company_name, MIN(employees), MAX(paid_time_off_days)
+FROM fortune_companies
+WHERE healthcare_benefits=1;
 
-#Which industry has the highest days of PTO? 
+# Which industry has the highest days of PTO? 
+SELECT industry, ROUND(AVG(paid_time_off_days))
+FROM fortune_companies;
