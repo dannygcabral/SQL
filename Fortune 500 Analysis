@@ -58,11 +58,11 @@ VALUES
 
 # Analysis: 
 
-# Assign all the companies as "Best Benefits", "Average Benefits", or "Lack of Benefits" based on the benefits offered. 
+# Assign all the companies as "Best Benefits", "Average Benefits", or "Below Average Benefits" based on the benefits offered. 
 SELECT company_name, paid_time_off_days, maternity_leave_weeks,
 CASE WHEN paid_time_off_days >=20 AND maternity_leave_weeks >=12 THEN "Best Benefits"
 WHEN paid_time_off_days >=15 AND maternity_leave_weeks >=10 THEN "Average Benefits"
-ELSE "Lack of Benefits"
+ELSE "Below Average Benefits"
 END AS Benefits
 FROM fortune_companies
 WHERE healthcare_benefits=1
