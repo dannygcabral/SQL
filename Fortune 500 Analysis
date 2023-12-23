@@ -58,4 +58,12 @@ VALUES
 
 # Analysis: 
 
-# Assign all the companies in the Healthcare industry as "mother friendly workplace", "acceptable", or "abysmal" based on the maternity leave offered. 
+# Assign all the companies as "Best Benefits", "Average Benefits", or "Lack of Benefits" based on the benefits offered. 
+
+# Which industries have an average revenue of at least $200 billion and what are their average revenues? 
+
+# Which companies have health benefits and have been able to retain employees for an average of more than 5 years? 
+
+# Which company with health benefits has the lowest number of employees with the most days of PTO?
+
+#Which industry has the highest days of PTO? 
